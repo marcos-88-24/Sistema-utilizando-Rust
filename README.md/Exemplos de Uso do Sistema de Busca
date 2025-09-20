@@ -1,1 +1,18 @@
-
+1.	Buscar produtos pelo nome digite o nome do produto que você quer encontrar:
+2.	Consulta: "celular"
+3.	Resultado: Lista de celulares disponíveis no catálogo, mostrando marca e preço.
+4.	Buscar produtos por marca você pode procurar só por uma marca específica:
+5.	Consulta: "Samsung"
+6.	Resultado: Todos os produtos da marca Samsung no catálogo.
+7.	Buscar produtos por categoria é possível filtrar por categorias como eletrônicos, roupas, alimentos:
+8.	Consulta: "eletrônicos"
+9.	Resultado: Lista de produtos dentro da categoria eletrônicos.
+10.	Combinar filtros pode juntar mais de um critério, por exemplo, nome + categoria:
+11.	Consulta: "notebook" + Categoria: "eletrônicos"
+12.	Resultado: Notebooks dentro da categoria eletrônicos.
+13.	Sugestões automáticas (autocompletar) ao começar a digitar, o sistema sugere produtos ou marcas:
+14.	Digito: "ce"
+15.	Sugestão: "celular", "cerveja", "cebola"
+16.	Recomendações de produtos depois de buscar ou escolher um produto, o sistema mostra produtos parecidos ou que costumam ser comprados juntos:
+17.	Produto escolhido: "Notebook XYZ"
+18.	Recomendação: "Mouse sem fio", "Fone de ouvido", "Capa para notebook"
