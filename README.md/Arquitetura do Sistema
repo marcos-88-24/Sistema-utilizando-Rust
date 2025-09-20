@@ -1,1 +1,31 @@
+O sistema de busca da MegaStore é dividido em alguns módulos e componentes principais 
+para organizar melhor as funcionalidades e facilitar o funcionamento:
+
+1.	Módulo de Produtos
+  Armazena todas as informações dos produtos, como nome, marca, categoria, tags e preço.
+  Permite adicionar, atualizar ou remover produtos do catálogo.
+
+2.	Módulo de Busca
+  Responsável por procurar produtos usando palavras-chave.
+  Utiliza índices para encontrar produtos mais rápido.
+  Suporta filtros por marca, categoria ou outros atributos.
+
+3.	Módulo de Autocompletar
+  Sugere nomes de produtos ou marcas enquanto o usuário digita.
+  Ajuda o cliente a encontrar produtos mais rápido e evita erros de digitação.
+
+4.	Módulo de Recomendações
+  Indica produtos parecidos ou relacionados com base em compras anteriores, categorias ou co-purchases.
+  Usa um grafo de produtos para identificar relações entre eles.
+
+5.	Módulo de Persistência
+  Salva os dados do catálogo, índices de busca e grafo de produtos.
+  Pode usar arquivos JSON, banco de dados simples ou bibliotecas do Rust como sled ou rocksdb.
+
+6.	Interface de Usuário / API
+  Permite que o cliente faça buscas, veja sugestões e recomendações.
+  Pode ser via terminal, interface web simples ou API REST.
+
+7.	Módulo de Testes
+  Contém testes unitários e de integração para garantir que todas as funções estejam funcionando corretamente
 
