@@ -1,1 +1,12 @@
+Rust: linguagem principal para programar o sistema
+
+crates (bibliotecas)
+tantivy → para criar o índice de busca e procurar produtos rápido.
+petgraph → para montar e manipular o grafo de produtos e recomendações.
+serde e serde_json → para salvar e ler dados em arquivos JSON.
+rayon → para processar várias coisas ao mesmo tempo e deixar mais rápido
+
+•	Ferramentas de teste:
+Testes unitários do próprio Rust (cargo test) para checar se as funções estão funcionando.
+Testes manuais simulando buscas e recomendações para ver se os resultados fazem sentido.
 
