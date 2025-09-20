@@ -5,6 +5,3 @@
 5.	cargo build --release Isso vai compilar o projeto e criar os arquivos necessários para rodar.
 6.	Executar o sistema para iniciar o sistema de busca, use:
 7.	cargo run ou, se já compilou com --release:./target/release/<nome-do-executavel>
-8.	Testar buscas e recomendações depois que o sistema estiver rodando, você pode digitar palavras-chave no terminal ou usar a interface (se houver) para testar:
-o	Buscar produtos pelo nome ou marca. O	Ver recomendações de produtos parecidos.
-
