@@ -1,1 +1,12 @@
+1.	Entrar na pasta do projeto abra o terminal e vá para a pasta onde está o projeto:
+2.	cd <nome-da-pasta-do-projeto>
+3.	Rodar todos os testes (unitários + integração) no Rust, o comando cargo test já executa todos os testes, tanto os unitários quanto os de integração:
+4.	cargo test rodar apenas os testes unitários
+Os testes unitários ficam normalmente dentro de cada módulo (arquivo .rs) na seção #[cfg(test)]. Para rodar só eles:
+6.	cargo test --lib rodar apenas os testes de integração os testes de integração ficam na pasta tests/. Para rodar só eles:
+8.	cargo test --test <nome_do_arquivo_de_teste> por exemplo, se tiver um arquivo tests/integration.rs: cargo test --test integration
+9.	Verificar os resultados
+  ok → teste passou
+  FAILED → teste falhou e precisa ser corrigido
+  O terminal vai mostrar o nome do teste e qual falhou, caso tenha erro.
 
