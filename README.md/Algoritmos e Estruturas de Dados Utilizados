@@ -1,1 +1,25 @@
+1.	Tabelas Hash (HashMap)
+  Usadas para criar índices de busca, associando palavras (tokens) a listas de produtos.
+  Permite encontrar rapidamente todos os produtos que contêm uma palavra específica.
+  Também usadas para guardar categorias, marcas e tags de produtos, permitindo filtros rápidos.
+
+2.	Vetores (Vec)
+  Guardam listas de produtos ou resultados de busca.
+  Facilitam ordenar produtos por popularidade ou preço.
+
+3.	Conjuntos (HashSet)
+  Usados para comparar categorias e tags entre produtos.
+  Permitem calcular similaridade entre produtos para recomendações (por exemplo, usando Jaccard).
+
+4.	Grafos (usando petgraph)
+  Cada produto é um nó e as relações (co-purchase, produtos similares) são arestas.
+  Ajuda a encontrar produtos relacionados ou recomendar produtos comprados juntos.
+
+5.	Algoritmos de Busca
+  Busca simples por token: encontra produtos que contêm as palavras da consulta.
+  Ranking por popularidade: ordena resultados de acordo com a popularidade ou relevância.
+  Recomendações por similaridade: calcula produtos parecidos usando conjuntos de categorias e tags ou analisando vizinhos no grafo.
+
+6.	Autocompletar (opcional)
+  Pode usar trie ou buscas rápidas no HashMap para sugerir nomes de produtos enquanto o usuário digita.
 
