@@ -1,1 +1,11 @@
+1.  Coloque os arquivos do projeto em uma pasta no seu computador. Se estiver no GitHub, use:
+2.	git clone <link-do-projeto>
+3.	cd <nome-da-pasta-do-projeto>
+4.	Compilar o projeto dentro da pasta do projeto, rode:
+5.	cargo build --release Isso vai compilar o projeto e criar os arquivos necessários para rodar.
+6.	Executar o sistema para iniciar o sistema de busca, use:
+7.	cargo run ou, se já compilou com --release:./target/release/<nome-do-executavel>
+8.	Testar buscas e recomendações depois que o sistema estiver rodando, você pode digitar palavras-chave no terminal ou usar a interface (se houver) para testar:
+o	Buscar produtos pelo nome ou marca. O	Ver recomendações de produtos parecidos.
+9.	Rodar os testes (opcional) Para conferir se todas as funções estão funcionando, execute: cargo test
 
