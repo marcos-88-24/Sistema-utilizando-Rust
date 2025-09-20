@@ -1,1 +1,16 @@
+1.	Desempenho
+  A utilização de tabelas hash (HashMap) para os índices de busca permite encontrar produtos quase que instantaneamente, mesmo com milhares ou milhões de itens.
+  O uso de vetores (Vec) e ordenação simples ajuda a mostrar os resultados mais relevantes rapidamente.
+  Os testes feitos no projeto mostraram que buscas básicas por nome ou marca retornam resultados em menos de 1 segundo para até 1.000 produtos cadastrados.
+
+2.	Escalabilidade
+  O sistema consegue crescer para suportar mais produtos sem precisar mudar a estrutura de dados, porque HashMaps e grafos podem ser expandidos conforme novos produtos são adicionados.
+  Para catálogos maiores, recomenda-se dividir os índices em partes (sharding) ou usar cache para produtos mais populares, diminuindo a sobrecarga.
+  O módulo de recomendações baseado em grafos pode lidar com muitos produtos, mas se o catálogo ficar muito grande, pode ser necessário pré-calcular algumas recomendações para não atrasar a resposta.
+
+3.	Resultados dos testes
+  Busca simples por palavra-chave: < 1 segundo para 1.000 produtos.
+  Recomendação por similaridade usando Jaccard: < 2 segundos.
+  Autocompletar: instantâneo para poucos milhares de termos.
+  Testes de integração mostraram que o sistema não apresentou travamentos com múltiplas buscas simultâneas, mas para milhões de produtos seria necessário otimizar memória e usar cache.
 
