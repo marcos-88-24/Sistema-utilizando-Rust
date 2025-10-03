@@ -1,18 +1,21 @@
 use std::collections::{HashMap, HashSet};
-
 use crate::models::Produto;
 use crate::utils::tokenizar;
 
 type ProdId = u32;
 
 #[derive(Default)]
-struct Trie {
+pub(crate) struct Trie {
     filhos: HashMap<char, Trie>,
     ids: HashSet<ProdId>,
 }
 
 impl Trie {
-    fn inserir(&mut self, palavra: &str, id: ProdId) {
+    pub(crate) fn new() -> Self {
+        Self::default()
+    }
+
+    pub(crate) fn inserir(&mut self, palavra: &str, id: ProdId) {
         let mut no = self;
         for ch in palavra.chars() {
             no = no.filhos.entry(ch).or_default();
@@ -20,7 +23,7 @@ impl Trie {
         }
     }
 
-    fn buscar_prefixo(&self, prefixo: &str) -> HashSet<ProdId> {
+    pub(crate) fn buscar_prefixo(&self, prefixo: &str) -> HashSet<ProdId> {
         let mut no = self;
         for ch in prefixo.chars() {
             if let Some(next) = no.filhos.get(&ch) {
@@ -34,9 +37,9 @@ impl Trie {
 }
 
 pub struct Indice {
-    pub idx: HashMap<String, HashMap<ProdId, usize>>,
-    pub produtos: HashMap<ProdId, Produto>,
-    pub trie: Trie,
+    idx: HashMap<String, HashMap<ProdId, usize>>,
+    produtos: HashMap<ProdId, Produto>,
+    trie: Trie,
 }
 
 impl Indice {
@@ -44,7 +47,7 @@ impl Indice {
         Self {
             idx: HashMap::new(),
             produtos: HashMap::new(),
-            trie: Trie::default(),
+            trie: Trie::new(),
         }
     }
 
@@ -53,17 +56,37 @@ impl Indice {
         self.produtos.insert(id, p.clone());
 
         for tk in tokenizar(&p.nome) {
-            self.idx.entry(format!("nome:{}", tk)).or_default().entry(id).and_modify(|c| *c += 1).or_insert(1);
+            self.idx
+                .entry(format!("nome:{}", tk))
+                .or_default()
+                .entry(id)
+                .and_modify(|c| *c += 1)
+                .or_insert(1);
             self.trie.inserir(&tk, id);
         }
         for tk in tokenizar(&p.marca) {
-            self.idx.entry(format!("marca:{}", tk)).or_default().entry(id).and_modify(|c| *c += 1).or_insert(1);
+            self.idx
+                .entry(format!("marca:{}", tk))
+                .or_default()
+                .entry(id)
+                .and_modify(|c| *c += 1)
+                .or_insert(1);
         }
         for tk in tokenizar(&p.categoria) {
-            self.idx.entry(format!("cat:{}", tk)).or_default().entry(id).and_modify(|c| *c += 1).or_insert(1);
+            self.idx
+                .entry(format!("cat:{}", tk))
+                .or_default()
+                .entry(id)
+                .and_modify(|c| *c += 1)
+                .or_insert(1);
         }
         for tk in tokenizar(&p.descricao) {
-            self.idx.entry(format!("desc:{}", tk)).or_default().entry(id).and_modify(|c| *c += 1).or_insert(1);
+            self.idx
+                .entry(format!("desc:{}", tk))
+                .or_default()
+                .entry(id)
+                .and_modify(|c| *c += 1)
+                .or_insert(1);
         }
     }
 
@@ -97,5 +120,9 @@ impl Indice {
             .take(limit)
             .filter_map(|(id, sc)| self.produtos.get(&id).map(|p| (p.clone(), sc)))
             .collect()
+    }
+
+    pub fn get_produto(&self, id: ProdId) -> Option<&Produto> {
+        self.produtos.get(&id)
     }
 }
